@@ -13,4 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'products');
+Route::view('/', 'administrador');
+
+Route::view('products', 'products')->name('pro');
+
+Route::view('posts', 'posts');
+
+Route::view('inventory', 'inventory')->name('inventory');
+
+Route::view('billing', 'inventory')->name('billing');
+
+

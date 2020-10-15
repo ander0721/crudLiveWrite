@@ -1,3 +1,4 @@
+
 <div>
 
     @if ( count($errors) > 0 )
@@ -16,8 +17,13 @@
         @include('livewire.products.create')
     @endif
 
-    <table class="table table-striped mt-3">
-        <thead>
+    <hr class="primary">
+
+
+    <table class="table table-hover mt-3">
+
+    
+        <thead class="table">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">name</th>
@@ -33,9 +39,9 @@
                     <td>{{ $product->description }}</td>
                     <td>
                         <button wire:click="edit({{ $product->id }})"
-                                class="btn btn-success btn-sm">edit</button>
+                                class="btn btn-primary btn-sm"><i class='fas fa-edit'></i></button>
                         <button wire:click="destroy({{ $product->id }})"
-                                class="btn btn-danger btn-sm">delete</button>
+                                class="btn btn-primary btn-sm"><i class='fas fa-trash'></i></button>
                     </td>
                 </tr>
             @endforeach
@@ -45,3 +51,4 @@
     {{ $products->links() }}
 
 </div>
+

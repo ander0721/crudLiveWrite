@@ -17,7 +17,8 @@ class ProductComponent extends Component
     {
         $products = Product::paginate(5);
 
-        return view('livewire.products.component', ['products' => $products]);
+        return view('livewire.products.component')
+        ->with('products',$products);
     }
 
     private function resetInput()
@@ -29,8 +30,8 @@ class ProductComponent extends Component
     public function store()
     {
         $this->validate([
-            'name' => 'required|min:5',
-            'description' => 'required|min:5'
+            'name' => 'required|min:3',
+            'description' => 'required|min:10'
         ]);
 
         Product::create([
@@ -79,6 +80,7 @@ class ProductComponent extends Component
     public function destroy($id)
     {
         if ($id) {
+            
             $product = Product::where('id', $id);
             $product->delete();
         }
